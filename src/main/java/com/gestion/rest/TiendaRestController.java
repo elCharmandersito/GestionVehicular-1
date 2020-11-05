@@ -15,7 +15,7 @@ public class TiendaRestController {
 	@Autowired
 	private TiendaServicelmpl tiendaService;
 	
-	@PostMapping(value = "/tienda", produces = "application/json")
+	@PostMapping(value = "/tiendas/agregar", produces = "application/json")
 	public ResponseEntity<Tienda> addCategoria(@RequestBody Tienda tienda){
 		try {
 			tiendaService.save(tienda);

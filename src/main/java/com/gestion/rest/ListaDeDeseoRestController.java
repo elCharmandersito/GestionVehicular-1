@@ -19,7 +19,7 @@ public class ListaDeDeseoRestController {
 	@Autowired
 	private ListaDeDeseoServiceImpl listaDeseoService;
 	
-	@PostMapping(value = "/lista_de_deseo", produces ="application/json")
+	@PostMapping(value = "/lista_de_deseos/agregar", produces ="application/json")
 	public ResponseEntity<ListaDeDeseo> addNewList(@RequestBody ListaDeDeseo ldd){
 		try {
 			listaDeseoService.save(ldd);
@@ -30,7 +30,7 @@ public class ListaDeDeseoRestController {
 		}
 	}
 	
-	@GetMapping (value = "/lista_de_deseo", produces = "application/json")
+	@GetMapping (value = "/lista_de_deseos", produces = "application/json")
 	public ResponseEntity<List<ListaDeDeseo>> getAllProductos(){
 		
 		List <ListaDeDeseo> ldd = listaDeseoService.getAllList();

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class ListaDeDeseo {
 
 	@Id	
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name = "nombre", length = 150)

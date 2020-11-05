@@ -20,7 +20,7 @@ public class CategoriaRestController {
 	@Autowired
 	private CategoriaServiceImpl categoriaService;
 	
-	@PostMapping(value = "/categoria", produces = "application/json")
+	@PostMapping(value = "/categorias/agregar", produces = "application/json")
 	public ResponseEntity<Categoria> addCategoria(@RequestBody Categoria categoria) {
 		try {
 			categoriaService.save(categoria);
@@ -31,7 +31,7 @@ public class CategoriaRestController {
 		}
 	}
 	
-	@GetMapping(value= "/categoria", produces = "application/json")
+	@GetMapping(value= "/categorias", produces = "application/json")
 	public ResponseEntity<List<Categoria>> getAllCategorias() {
 		List<Categoria> categorias = categoriaService.getAllCategorias();
 		if (!categorias.isEmpty()) {

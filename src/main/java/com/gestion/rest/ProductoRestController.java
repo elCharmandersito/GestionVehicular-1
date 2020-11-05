@@ -23,7 +23,7 @@ public class ProductoRestController {
 	@Autowired
 	private ProductoServiceImpl productoService;
 	
-	@PostMapping(value = "/productos", produces = "application/json")
+	@PostMapping(value = "/productos/agregar", produces = "application/json")
 	public ResponseEntity<Producto> addProducto(@RequestBody Producto producto) {
 		try {
 			productoService.save(producto);

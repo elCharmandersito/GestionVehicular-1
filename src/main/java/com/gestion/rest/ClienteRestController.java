@@ -20,7 +20,7 @@ public class ClienteRestController {
 	@Autowired
 	private ClienteServicelmpl clienteService;
 	
-	@PostMapping(value = "/cliente", produces ="application/json")
+	@PostMapping(value = "/clientes/agregar", produces ="application/json")
 	public ResponseEntity<Cliente> addCliente(@RequestBody Cliente cliente){
 		
 		try {
@@ -35,7 +35,7 @@ public class ClienteRestController {
 		
 	}
 	
-	@GetMapping (value= "/cliente", produces = "application/json")
+	@GetMapping (value= "/clientes", produces = "application/json")
 	public ResponseEntity<List<Cliente>> gettAllClientes(){
 		
 		List <Cliente> clientes = clienteService.getAllClientes();

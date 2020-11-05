@@ -1,0 +1,31 @@
+package com.gestion.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gestion.model.Tienda;
+import com.gestion.service.TiendaServicelmpl;
+
+@RestController
+public class TiendaRestController {
+	@Autowired
+	private TiendaServicelmpl tiendaService;
+	
+	@PostMapping(value = "/tienda", produces = "application/json")
+	public ResponseEntity<Tienda> addCategoria(@RequestBody Tienda tienda){
+		try {
+			tiendaService.save(tienda);
+			return new ResponseEntity<Tienda>(tienda,HttpStatus.CREATED);
+		} catch (Exception e) {
+			// TODO: handle exceptio
+			System.out.println(e.getMessage());
+			return new ResponseEntity<Tienda>(HttpStatus.BAD_REQUEST);
+		}
+		
+	}
+
+}

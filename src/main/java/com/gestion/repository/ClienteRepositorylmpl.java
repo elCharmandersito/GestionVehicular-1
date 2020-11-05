@@ -14,49 +14,49 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
-import com.gestion.model.Categoria;
+import com.gestion.model.Cliente;
 import com.gestion.model.Producto;
 
 @Repository
-public class ProductoRepositoryImpl implements ProductoRepository{
-
+public class ClienteRepositorylmpl implements ClienteRepository{
+	
 	@PersistenceContext
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Producto> findAll() {
-		return this.em.createQuery("SELECT producto FROM Producto producto").getResultList();
+	public List<Cliente> findAll() {
+		return this.em.createQuery("SELECT cliente FROM Cliente cliente").getResultList();
 	}
-	
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Producto> findByNombre(String nombre) throws DataAccessException {
-		Query query = this.em.createQuery("SELECT DISTINCT producto FROM Producto producto WHERE producto.nombre LIKE :nombre");
-        query.setParameter("nombre", "%" + nombre + "%");
-        return query.getResultList();
+	public List<Cliente> findByNombre(String nombre) throws DataAccessException {
+		Query query = this.em.createQuery("SELECT DISTINCT cliente FROM Cliente cliente WHERE cliente.nombre LIKE :nombre");
+		query.setParameter("nombre", nombre + "%");
+		return query.getResultList();
 	}
 	
-	public <S extends Producto> S save(S entity) {
-	    em.persist(entity);
-	    return entity;
-	}
-
 	@Override
-	public List<Producto> findAll(Sort sort) {
+	public <S extends Cliente> S save(S entity) {
+		em.persist(entity);
+		return entity;
+	}
+	
+	@Override
+	public List<Cliente> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Producto> findAllById(Iterable<Integer> ids) {
+	public List<Cliente> findAllById(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Cliente> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -68,13 +68,13 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public <S extends Producto> S saveAndFlush(S entity) {
+	public <S extends Cliente> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteInBatch(Iterable<Producto> entities) {
+	public void deleteInBatch(Iterable<Cliente> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -86,33 +86,31 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public Producto getOne(Integer id) {
+	public Cliente getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> List<S> findAll(Example<S> example) {
+	public <S extends Cliente> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Cliente> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Producto> findAll(Pageable pageable) {
+	public Page<Cliente> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-
 	@Override
-	public Optional<Producto> findById(Integer id) {
+	public Optional<Cliente> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -136,13 +134,13 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public void delete(Producto entity) {
+	public void delete(Cliente entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Producto> entities) {
+	public void deleteAll(Iterable<? extends Cliente> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -154,28 +152,28 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public <S extends Producto> Optional<S> findOne(Example<S> example) {
+	public <S extends Cliente> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Cliente> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> long count(Example<S> example) {
+	public <S extends Cliente> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Producto> boolean exists(Example<S> example) {
+	public <S extends Cliente> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
+
 }

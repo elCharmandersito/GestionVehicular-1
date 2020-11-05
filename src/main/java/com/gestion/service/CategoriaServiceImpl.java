@@ -7,39 +7,34 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gestion.model.Producto;
-import com.gestion.repository.ProductoRepository;
+import com.gestion.model.Categoria;
+import com.gestion.repository.CategoriaRepository;
 
 @Service
-public class ProductoServiceImpl implements ProductoService {
+public class CategoriaServiceImpl implements CategoriaService{
 	
 	@Autowired
-	private ProductoRepository repo;
+	private CategoriaRepository repo;
 	
+
 	@Override
-	public List<Producto> getAllProductos() {
+	public List<Categoria> getAllCategorias() {
 		return repo.findAll();
-	}
-	
-	public List<Producto> findByNombre(String nombre) {
-		return repo.findByNombre(nombre);
 	}
 	
 	@Transactional
 	@Override
-	public void save(Producto producto) throws Exception {
-		if (producto == null) {
+	public void save(Categoria categoria) throws Exception {
+		if (categoria == null) {
 			throw new Exception();
 		}
 		try {
-			repo.save(producto);
+			repo.save(categoria);
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			throw new Exception();
 		}
+		
 	}
 
-	
-
-	
 }

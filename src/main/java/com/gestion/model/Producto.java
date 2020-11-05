@@ -2,7 +2,12 @@ package com.gestion.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Producto {
@@ -23,6 +28,11 @@ public class Producto {
 	
 	@Column(name = "stock")
 	private int stock;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_categoria")
+    @JsonBackReference
+	private Categoria cat;
 
 	public int getId() {
 		return id;
@@ -70,6 +80,14 @@ public class Producto {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public Categoria getCat() {
+		return cat;
+	}
+
+	public void setCat(Categoria cat) {
+		this.cat = cat;
 	}
 	
 	

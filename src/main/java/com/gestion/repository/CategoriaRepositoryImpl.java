@@ -5,9 +5,7 @@ import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,45 +16,36 @@ import com.gestion.model.Categoria;
 import com.gestion.model.Producto;
 
 @Repository
-public class ProductoRepositoryImpl implements ProductoRepository{
+public class CategoriaRepositoryImpl implements CategoriaRepository {
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Producto> findAll() {
-		return this.em.createQuery("SELECT producto FROM Producto producto").getResultList();
+	public List<Categoria> findAll() {
+		return this.em.createQuery("SELECT categoria FROM Categoria categoria").getResultList();
 	}
 	
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Producto> findByNombre(String nombre) throws DataAccessException {
-		Query query = this.em.createQuery("SELECT DISTINCT producto FROM Producto producto WHERE producto.nombre LIKE :nombre");
-        query.setParameter("nombre", "%" + nombre + "%");
-        return query.getResultList();
-	}
-	
-	public <S extends Producto> S save(S entity) {
+	public <S extends Categoria> S save(S entity) {
 	    em.persist(entity);
 	    return entity;
 	}
 
 	@Override
-	public List<Producto> findAll(Sort sort) {
+	public List<Categoria> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Producto> findAllById(Iterable<Integer> ids) {
+	public List<Categoria> findAllById(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Categoria> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -68,13 +57,13 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public <S extends Producto> S saveAndFlush(S entity) {
+	public <S extends Categoria> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteInBatch(Iterable<Producto> entities) {
+	public void deleteInBatch(Iterable<Categoria> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -86,33 +75,31 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public Producto getOne(Integer id) {
+	public Categoria getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> List<S> findAll(Example<S> example) {
+	public <S extends Categoria> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Categoria> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Producto> findAll(Pageable pageable) {
+	public Page<Categoria> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-
 	@Override
-	public Optional<Producto> findById(Integer id) {
+	public Optional<Categoria> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -136,13 +123,13 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public void delete(Producto entity) {
+	public void delete(Categoria entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Producto> entities) {
+	public void deleteAll(Iterable<? extends Categoria> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -154,25 +141,25 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	}
 
 	@Override
-	public <S extends Producto> Optional<S> findOne(Example<S> example) {
+	public <S extends Categoria> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Categoria> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Producto> long count(Example<S> example) {
+	public <S extends Categoria> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Producto> boolean exists(Example<S> example) {
+	public <S extends Categoria> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}

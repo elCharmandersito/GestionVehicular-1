@@ -7,39 +7,37 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gestion.model.Producto;
-import com.gestion.repository.ProductoRepository;
+import com.gestion.model.Cliente;
+import com.gestion.repository.ClienteRepository;
 
 @Service
-public class ProductoServiceImpl implements ProductoService {
+public class ClienteServicelmpl implements ClienteService {
 	
 	@Autowired
-	private ProductoRepository repo;
+	private ClienteRepository repo;
 	
 	@Override
-	public List<Producto> getAllProductos() {
+	public List<Cliente> getAllClientes() {
+		// TODO Auto-generated method stub
 		return repo.findAll();
-	}
-	
-	public List<Producto> findByNombre(String nombre) {
-		return repo.findByNombre(nombre);
 	}
 	
 	@Transactional
 	@Override
-	public void save(Producto producto) throws Exception {
-		if (producto == null) {
+	public void save(Cliente cliente) throws Exception {
+		
+		if(cliente==null) {
 			throw new Exception();
 		}
 		try {
-			repo.save(producto);
-		} catch (DataAccessException e) {
+			repo.save(cliente);
+			
+		}catch(DataAccessException e) {
 			e.printStackTrace();
 			throw new Exception();
-		}
+		}		
+		
 	}
 
-	
 
-	
 }

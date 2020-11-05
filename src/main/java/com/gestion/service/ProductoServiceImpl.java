@@ -25,6 +25,11 @@ public class ProductoServiceImpl implements ProductoService {
 		return repo.findByNombre(nombre);
 	}
 	
+	public Producto findByInt(int id) {
+		return repo.findById(id);
+	}
+	
+	
 	@Transactional
 	@Override
 	public void save(Producto producto) throws Exception {
@@ -38,7 +43,21 @@ public class ProductoServiceImpl implements ProductoService {
 			throw new Exception();
 		}
 	}
-
+	
+	@Transactional
+	public void delete(int id) throws Exception{
+		
+		if (id == 0) {
+			throw new Exception();
+		}
+		
+		try {
+			repo.delete(id);
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			throw new Exception();
+		}	
+	}
 	
 
 	

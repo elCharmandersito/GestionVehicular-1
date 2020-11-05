@@ -10,5 +10,9 @@ import com.gestion.model.Producto;
 public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 
 	List<Producto> findByNombre(String nombre) throws DataAccessException;
+
+	Producto findById(int id) throws DataAccessException;
+
+	void delete(int id);
 	                   
 }         

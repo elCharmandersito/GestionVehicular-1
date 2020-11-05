@@ -38,11 +38,27 @@ public class ProductoRepositoryImpl implements ProductoRepository{
         return query.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+    @Override
+    public Producto findById(int id) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT producto FROM Producto producto WHERE producto.id = :id");
+        query.setParameter("id", id );
+        return (Producto) query.getResultList().get(0);
+    }
+	
 	public <S extends Producto> S save(S entity) {
 	    em.persist(entity);
 	    return entity;
 	}
+	
 
+	@Override
+	public void delete(int id) {
+		Producto producto = this.findById(id);
+		this.em.remove(producto);
+		
+	}
+	
 	@Override
 	public List<Producto> findAll(Sort sort) {
 		// TODO Auto-generated method stub

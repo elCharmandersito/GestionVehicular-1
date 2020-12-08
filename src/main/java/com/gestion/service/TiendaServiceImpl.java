@@ -13,12 +13,12 @@ import com.gestion.model.Tienda;
 import com.gestion.repository.TiendaRepository;
 
 @Service
-public class TiendaServicelmpl implements TiendaService {
+public class TiendaServiceImpl implements TiendaService {
 	@Autowired
 	private TiendaRepository repo;
 
 	@Override
-	public List<Tienda> getAllTienda() {
+	public List<Tienda> getAllTiendas() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
 	}

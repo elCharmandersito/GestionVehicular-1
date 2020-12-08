@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.model.Cliente;
-import com.gestion.service.ClienteServicelmpl;
+import com.gestion.service.ClienteServiceImpl;
 
 
 @RestController
 public class ClienteRestController {
 	
 	@Autowired
-	private ClienteServicelmpl clienteService;
+	private ClienteServiceImpl clienteService;
 	
 	@PostMapping(value = "/clientes/agregar", produces ="application/json")
 	public ResponseEntity<Cliente> addCliente(@RequestBody Cliente cliente){

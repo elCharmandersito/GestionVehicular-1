@@ -1,10 +1,13 @@
 package com.gestion.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -33,6 +36,12 @@ public class Producto {
 	@JoinColumn(name = "fk_categoria")
     @JsonBackReference
 	private Categoria cat;
+	
+	@ManyToMany(mappedBy = "productos")
+	private List<LineaListaDeDeseos> lineas;
+	
+	@ManyToMany(mappedBy = "productos_por_tienda")
+	private List<Tienda> tiendas;
 
 	public int getId() {
 		return id;

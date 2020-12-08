@@ -1,5 +1,9 @@
 package com.gestion.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+
 //import java.util.List;
 
 import javax.persistence.Column;
@@ -8,6 +12,8 @@ import javax.persistence.Id;
 /*import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany; */
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 
 
@@ -30,6 +36,10 @@ public class Tienda {
 	inverseJoinColumns = @JoinColumn (name = "idProducto" ))
 	 List<Producto> productos;
 	*/
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+	private List<Producto> productos_por_tienda;
 	
 
 	public int getId() {

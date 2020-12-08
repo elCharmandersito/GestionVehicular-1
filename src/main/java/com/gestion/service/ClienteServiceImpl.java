@@ -11,7 +11,7 @@ import com.gestion.model.Cliente;
 import com.gestion.repository.ClienteRepository;
 
 @Service
-public class ClienteServicelmpl implements ClienteService {
+public class ClienteServiceImpl implements ClienteService {
 	
 	@Autowired
 	private ClienteRepository repo;

@@ -1,10 +1,18 @@
 package com.gestion.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class ListaDeDeseo {
@@ -15,6 +23,14 @@ public class ListaDeDeseo {
 	
 	@Column(name = "nombre", length = 150)
 	private String name;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_cliente")
+    @JsonBackReference
+	private Cliente cliente;
+	
+	@OneToMany(mappedBy = "listaDeseo")
+	private List<LineaListaDeDeseos> lineaLista;
 
 	public int getId() {
 		return id;

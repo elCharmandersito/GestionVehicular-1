@@ -39,4 +39,7 @@ public class CategoriaRestController {
 		}
 		return new ResponseEntity<List<Categoria>>(HttpStatus.NOT_FOUND);
 	}
+
+	// esto es una prube
+	System.out.println("");
 }

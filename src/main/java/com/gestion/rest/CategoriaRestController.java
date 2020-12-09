@@ -41,5 +41,5 @@ public class CategoriaRestController {
 	}
 
 	// esto es una prube
-	System.out.println("");
+	System.out.println("Hola hoila");
 }
